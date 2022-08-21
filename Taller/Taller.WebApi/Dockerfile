@@ -1,0 +1,26 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["Taller/Taller.WebApi/Taller.WebApi.csproj", "Taller/Taller.WebApi/"]
+COPY ["Taller/Taller.Infrastructure.Persistence/Taller.Infrastructure.Persistence.csproj", "Taller/Taller.Infrastructure.Persistence/"]
+COPY ["Taller/Taller.Domain/Taller.Domain.csproj", "Taller/Taller.Domain/"]
+COPY ["Taller/Taller.Application/Taller.Application.csproj", "Taller/Taller.Application/"]
+COPY ["Taller/Taller.Infrastructure.Shared/Taller.Infrastructure.Shared.csproj", "Taller/Taller.Infrastructure.Shared/"]
+RUN dotnet restore "Taller/Taller.WebApi/Taller.WebApi.csproj"
+COPY . .
+WORKDIR "/src/Taller/Taller.WebApi"
+RUN dotnet build "Taller.WebApi.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Taller.WebApi.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Taller.WebApi.dll"]
