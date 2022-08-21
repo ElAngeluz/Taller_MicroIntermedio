@@ -3,21 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E0EB3783-B69D-46E8-8867-E79EB662B0DC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{57344E71-808D-44A3-9302-E3C918A31CFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller.WebApi", "Taller\Taller.WebApi\Taller.WebApi.csproj", "{05C5AA55-E76C-46A3-B3BE-7BB6E8CF527A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.WebApi", "Taller\Taller.WebApi\Taller.WebApi.csproj", "{05C5AA55-E76C-46A3-B3BE-7BB6E8CF527A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A67112BB-C4C0-4159-B099-16FFA2723854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller.Application", "Taller\Taller.Application\Taller.Application.csproj", "{D5D273A0-E9B3-4FDB-9F8F-5010F32CBC99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.Application", "Taller\Taller.Application\Taller.Application.csproj", "{D5D273A0-E9B3-4FDB-9F8F-5010F32CBC99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller.Domain", "Taller\Taller.Domain\Taller.Domain.csproj", "{1A8F53E5-6EEB-427C-85D8-4591506755E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.Domain", "Taller\Taller.Domain\Taller.Domain.csproj", "{1A8F53E5-6EEB-427C-85D8-4591506755E7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E98FE93E-A9F5-44B2-A207-F25D0B6E76C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taller.Infrastructure.Persistence", "Taller\Taller.Infrastructure.Persistence\Taller.Infrastructure.Persistence.csproj", "{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.Infrastructure.Persistence", "Taller\Taller.Infrastructure.Persistence\Taller.Infrastructure.Persistence.csproj", "{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{05C5AA55-E76C-46A3-B3BE-7BB6E8CF527A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{05C5AA55-E76C-46A3-B3BE-7BB6E8CF527A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C5AA55-E76C-46A3-B3BE-7BB6E8CF527A}.Release|Any CPU.ActiveCfg = Release|Any CPU

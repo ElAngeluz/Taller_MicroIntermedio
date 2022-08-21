@@ -42,7 +42,10 @@ namespace Taller.WebApi
             services.AddVersionedApiExplorerExtension();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext dbContext)
+        public void Configure(IApplicationBuilder app,
+                              IWebHostEnvironment env,
+                              ILoggerFactory loggerFactory,
+                              ApplicationDbContext dbContext)
         {
             if (env.IsDevelopment())
             {

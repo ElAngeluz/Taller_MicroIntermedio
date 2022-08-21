@@ -16,7 +16,7 @@ namespace Taller.Domain.Entities
         [JsonPropertyName("Nombre")]
         public string Name { get; set; }
         [JsonPropertyName("Genero")]
-        public Gender Gender { get; set; }
+        public GenderType Gender { get; set; }
 
         [JsonPropertyName("Edad")]
         public string YearsOld { get; set; }

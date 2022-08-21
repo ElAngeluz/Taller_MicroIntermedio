@@ -17,10 +17,18 @@ namespace Taller.Domain.Entities
 
         [JsonPropertyName("Clave")]
         public string Password { get; set; }
+
+        [JsonPropertyName("Esatdo")]
         public bool State { get; set; }
+
+        [JsonPropertyName("PersonaId")]
         public string PersonId { get; set; }
 
         [ForeignKey(nameof(PersonId))]
         public virtual Person PersonNav { get; set; }
+
+        [JsonIgnore]
+        [InverseProperty(nameof(Account.ClientNav))]
+        public ICollection<Account> AccountsNav { get; set; }
     }
 }
