@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Taller.Domain.Entities
 {
@@ -16,12 +13,14 @@ namespace Taller.Domain.Entities
         public Guid ClientId { get; set; }
 
         [JsonPropertyName("Clave")]
+        [StringLength(50)]
         public string Password { get; set; }
 
         [JsonPropertyName("Esatdo")]
         public bool State { get; set; }
 
         [JsonPropertyName("PersonaId")]
+        [StringLength(15)]
         public string PersonId { get; set; }
 
         [ForeignKey(nameof(PersonId))]

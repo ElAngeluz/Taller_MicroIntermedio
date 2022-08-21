@@ -27,7 +27,7 @@ namespace Taller.Infrastructure.Persistence
             #region Repositories
 
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
-            
+
             #endregion Repositories
         }
     }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Taller.Domain.Entities;
 
 namespace Taller.Application.Mappings
 {

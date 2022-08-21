@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
-using System.Threading;
-using System.Threading.Tasks;
 using Taller.Application.Interfaces;
-using Taller.Domain.Common;
 using Taller.Domain.Entities;
 
 namespace Taller.Infrastructure.Persistence.Contexts

@@ -1,9 +1,5 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Taller.Application.Interfaces;
-using Taller.Domain.Entities;
 
 namespace Taller.Application
 {

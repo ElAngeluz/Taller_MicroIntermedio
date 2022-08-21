@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 using Taller.Domain.Enums;
 
 namespace Taller.Domain.Entities
@@ -17,8 +14,10 @@ namespace Taller.Domain.Entities
 
         public MovementType MovementType { get; set; }
 
+        [Column(TypeName = "decimal(10,5)")]
         public decimal Value { get; set; }
 
+        [Column(TypeName = "decimal(10,5)")]
         public decimal ValueBalance { get; set; }
     }
 }
