@@ -32,8 +32,12 @@ namespace Taller.WebApi.Middlewares
 
                 switch (error)
                 {
-                    case Application.Exceptions.ApiException e:
+                    case ApiException e:
                         // custom application error
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+
+                    case ArgumentNullException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         break;
 

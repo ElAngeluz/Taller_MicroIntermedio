@@ -1,32 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using Taller.Domain.Enums;
 
-namespace Taller.Domain.Entities
+namespace Taller.Application.DTOs
 {
-    [Table("person")]
-    public class Person
+    public class PersonDTO
     {
+        [JsonPropertyName("Nombre")]
         [StringLength(100)]
         public string Name { get; set; }
 
+        [JsonPropertyName("Genero")]
         public GenderType Gender { get; set; }
 
+        [JsonPropertyName("Edad")]
         public uint YearsOld { get; set; }
 
         [Key]
-        public Guid Id { get; set; }
-
+        [JsonPropertyName("Identificacion")]
         [StringLength(15)]
         public string Identification { get; set; }
 
+        [JsonPropertyName("Direccion")]
         [StringLength(100)]
         public string Address { get; set; }
 
+        [JsonPropertyName("Telefono")]
         [StringLength(25)]
         public string Phone { get; set; }
-
-        public Client ClientNav { get; set; }
     }
 }

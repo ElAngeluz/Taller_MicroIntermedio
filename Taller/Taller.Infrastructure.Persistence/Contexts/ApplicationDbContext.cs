@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System;
 using Taller.Application.Interfaces;
 using Taller.Domain.Entities;
 
@@ -25,6 +27,7 @@ namespace Taller.Infrastructure.Persistence.Contexts
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _loggerFactory = loggerFactory;
+                       
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -37,6 +40,10 @@ namespace Taller.Infrastructure.Persistence.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLoggerFactory(_loggerFactory);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("server=ANSERVER-TECH\\SQLEXPRESS;Database=Stelios;Trusted_Connection=True;MultipleActiveResultSets=true");
+            }
         }
     }
 }

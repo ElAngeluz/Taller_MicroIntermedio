@@ -14,7 +14,7 @@ namespace Taller.Infrastructure.Persistence
             if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseInMemoryDatabase("ApplicationDb"));
+                    options.UseInMemoryDatabase("DefaultConnection"));
             }
             else
             {

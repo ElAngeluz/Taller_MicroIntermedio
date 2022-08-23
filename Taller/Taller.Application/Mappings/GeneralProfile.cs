@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Taller.Application.DTOs;
+using Taller.Domain.Entities;
 
 namespace Taller.Application.Mappings
 {
@@ -6,7 +8,7 @@ namespace Taller.Application.Mappings
     {
         public GeneralProfile()
         {
-            //CreateMap<Position, GetPositionsViewModel>().ReverseMap();
+            CreateMap<Person, PersonDTO>().ReverseMap();
         }
     }
 }
