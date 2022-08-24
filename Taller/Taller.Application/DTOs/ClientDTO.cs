@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Taller.Domain.Enums;
 
 namespace Taller.Application.DTOs
 {
@@ -30,7 +24,7 @@ namespace Taller.Application.DTOs
         [StringLength(25)]
         public string Phone { get; set; }
 
-        [StringLength(50)]        
+        [StringLength(50)]
         public string Password { get; set; }
 
         [JsonPropertyName("Estado")]

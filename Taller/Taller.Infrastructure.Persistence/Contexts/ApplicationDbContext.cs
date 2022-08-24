@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
 using Taller.Application.Interfaces;
 using Taller.Domain.Entities;
 
@@ -27,7 +25,7 @@ namespace Taller.Infrastructure.Persistence.Contexts
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             _loggerFactory = loggerFactory;
-                       
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

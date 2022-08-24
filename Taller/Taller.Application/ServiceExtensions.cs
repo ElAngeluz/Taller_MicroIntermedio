@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Taller.Application.Interfaces.Repositories;
 
 namespace Taller.Application
 {

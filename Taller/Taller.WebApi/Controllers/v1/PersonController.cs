@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Taller.Domain.Entities;
-using Taller.Application.DTOs;
-using Taller.Application.Interfaces.Repositories;
 using System;
+using Taller.Application.Interfaces.Repositories;
 
 namespace Taller.WebApi.Controllers.v1
 {
@@ -22,7 +20,7 @@ namespace Taller.WebApi.Controllers.v1
         }
 
         [HttpGet("{Id}")]
-        public IActionResult GetPerson(Guid? Id) 
+        public IActionResult GetPerson(Guid? Id)
         {
             if (Id is null)
             {

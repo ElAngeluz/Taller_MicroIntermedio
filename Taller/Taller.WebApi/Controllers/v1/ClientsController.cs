@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Taller.Application.DTOs;
 using Taller.Application.Interfaces.Repositories;
 using Taller.Domain.Entities;
-using Taller.Infrastructure.Persistence.Contexts;
 
 namespace Taller.WebApi.Controllers.v1
 {
@@ -33,7 +29,7 @@ namespace Taller.WebApi.Controllers.v1
         {
             var result = await IClient.GetAllAsync();
             var mappedUser = _mapper.Map<List<ClientDTO>>(result);
-            
+
             return Ok(mappedUser);
         }
 
@@ -48,7 +44,7 @@ namespace Taller.WebApi.Controllers.v1
                 return NotFound();
             }
             var result = _mapper.Map<ClientDTO>(client);
-            
+
 
             return result;
         }
@@ -60,7 +56,7 @@ namespace Taller.WebApi.Controllers.v1
         {
             var result = _mapper.Map<Client>(clientDTO);
             await IClient.UpdateAsync(result);
-            
+
             return NoContent();
         }
 
