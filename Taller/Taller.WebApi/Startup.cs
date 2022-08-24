@@ -6,8 +6,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Taller.Application;
+using Taller.Application.Interfaces.Repositories;
 using Taller.Infrastructure.Persistence;
 using Taller.Infrastructure.Persistence.Contexts;
+using Taller.Infrastructure.Persistence.Repositories;
 using Taller.WebApi.Extensions;
 
 namespace Taller.WebApi
@@ -40,6 +42,11 @@ namespace Taller.WebApi
                 .AddApiExplorer();
             // API explorer version
             services.AddVersionedApiExplorerExtension();
+
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IMovementRepository, MovementRepository>();
         }
 
         public void Configure(IApplicationBuilder app,

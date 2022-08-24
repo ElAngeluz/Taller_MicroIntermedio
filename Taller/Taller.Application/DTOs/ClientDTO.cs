@@ -9,21 +9,17 @@ using Taller.Domain.Enums;
 
 namespace Taller.Application.DTOs
 {
-    public class PersonDTO
+    public class ClientDTO
     {
         [JsonPropertyName("Nombre")]
         [StringLength(100)]
+        [Required]
         public string Name { get; set; }
-
-        [JsonPropertyName("Genero")]
-        public GenderType Gender { get; set; }
-
-        [JsonPropertyName("Edad")]
-        public uint YearsOld { get; set; }
 
         [Key]
         [JsonPropertyName("Identificacion")]
         [StringLength(15)]
+        [Required]
         public string Identification { get; set; }
 
         [JsonPropertyName("Direccion")]
@@ -33,5 +29,11 @@ namespace Taller.Application.DTOs
         [JsonPropertyName("Telefono")]
         [StringLength(25)]
         public string Phone { get; set; }
+
+        [StringLength(50)]        
+        public string Password { get; set; }
+
+        [JsonPropertyName("Estado")]
+        public bool ClientState { get; set; }
     }
 }
