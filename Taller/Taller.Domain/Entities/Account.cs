@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -28,6 +29,9 @@ namespace Taller.Domain.Entities
         [JsonIgnore]
         [ForeignKey(nameof(ClientId))]
         public virtual Client ClientNav { get; set; }
+
+        [InverseProperty(nameof(Movement.AccountNav))]
+        public ICollection<Movement> MovementsNav { get; set; }
 
     }
 }

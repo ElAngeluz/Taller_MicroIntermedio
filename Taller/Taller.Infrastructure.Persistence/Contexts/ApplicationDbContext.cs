@@ -42,7 +42,7 @@ namespace Taller.Infrastructure.Persistence.Contexts
             optionsBuilder.UseLoggerFactory(_loggerFactory);
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("server=ANSERVER-TECH\\SQLEXPRESS;Database=Stelios;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer("server=ANSERVER-TECH\\SQLEXPRESS;Database=Taller;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
     }

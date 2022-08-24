@@ -20,8 +20,7 @@ namespace Taller.Domain.Entities
         public bool State { get; set; }
 
         [JsonPropertyName("PersonaId")]
-        [StringLength(15)]
-        public string PersonId { get; set; }
+        public Guid PersonId { get; set; }
 
         [ForeignKey(nameof(PersonId))]
         public virtual Person PersonNav { get; set; }

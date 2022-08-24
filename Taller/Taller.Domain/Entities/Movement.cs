@@ -19,5 +19,10 @@ namespace Taller.Domain.Entities
 
         [Column(TypeName = "decimal(10,5)")]
         public decimal ValueBalance { get; set; }
+                
+        public Guid AccountId { get; set; }
+
+        [ForeignKey(nameof(AccountId))]
+        public virtual Account AccountNav { get; set; }
     }
 }
