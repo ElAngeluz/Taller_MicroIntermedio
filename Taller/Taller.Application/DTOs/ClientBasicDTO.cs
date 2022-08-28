@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Taller.Application.DTOs
 {
-    public class ClientDTO
+    public class ClientBasicDTO
     {
         [JsonPropertyName("Nombre")]
         [StringLength(100)]
@@ -23,9 +23,6 @@ namespace Taller.Application.DTOs
         [JsonPropertyName("Telefono")]
         [StringLength(25)]
         public string Phone { get; set; }
-
-        [StringLength(50)]
-        public string Password { get; set; }
 
         [JsonPropertyName("Estado")]
         public bool ClientState { get; set; }

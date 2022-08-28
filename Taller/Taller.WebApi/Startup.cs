@@ -65,8 +65,6 @@ namespace Taller.WebApi
             }
 
             dbContext.Database.EnsureCreated();
-
-            // Add this line; you'll need `using Serilog;` up the top, too
             app.UseSerilogRequestLogging();
             loggerFactory.AddSerilog();
             app.UseHttpsRedirection();

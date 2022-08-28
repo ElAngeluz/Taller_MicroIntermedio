@@ -21,6 +21,9 @@ namespace Taller.WebApi
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(config)
                 .WriteTo.Console()
+                .Enrich.FromLogContext()
+                .Enrich.WithThreadId()
+                .Enrich.WithMachineName()                
                 .CreateLogger();
 
             var host = CreateHostBuilder(args).Build();
@@ -46,6 +49,7 @@ namespace Taller.WebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            .ConfigureLogging(log => { log.ClearProviders(); log.AddConsole(); })
             .UseSerilog() //Uses Serilog instead of default .NET Logger
             .ConfigureWebHostDefaults(webBuilder =>
             {

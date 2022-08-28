@@ -30,6 +30,7 @@ namespace Taller.Domain.Entities
         [ForeignKey(nameof(ClientId))]
         public virtual Client ClientNav { get; set; }
 
+        [JsonIgnore]
         [InverseProperty(nameof(Movement.AccountNav))]
         public ICollection<Movement> MovementsNav { get; set; }
 

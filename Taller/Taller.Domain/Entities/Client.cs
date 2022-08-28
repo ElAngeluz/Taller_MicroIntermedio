@@ -16,7 +16,7 @@ namespace Taller.Domain.Entities
         [StringLength(50)]
         public string Password { get; set; }
 
-        [JsonPropertyName("Esatdo")]
+        [JsonPropertyName("Estado")]
         public bool State { get; set; }
 
         [JsonPropertyName("PersonaId")]

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,26 +17,33 @@ namespace Taller.WebApi.Controllers.v1
         private readonly IMapper _mapper;
         private readonly IPersonRepository IPerson;
         private readonly IClientRepository IClient;
+        private readonly ILogger _logger;
 
-        public ClientsController(IMapper mapper, IPersonRepository iPerson)
+        public ClientsController(IMapper mapper,
+                                 IPersonRepository iPerson,
+                                 ILogger<ClientsController> logger,
+                                 IClientRepository iClient)
         {
             _mapper = mapper;
             IPerson = iPerson;
+            _logger = logger;
+            IClient = iClient;
         }
 
         // GET: api/Clients
         [HttpGet]
-        public async Task<ActionResult<List<ClientDTO>>> GetClient()
+        public async Task<ActionResult<List<ClientResponseDTO>>> GetClient()
         {
+            _logger.LogInformation("Se procede a consultar todos los clientes");
             var result = await IClient.GetAllAsync();
-            var mappedUser = _mapper.Map<List<ClientDTO>>(result);
+            var mappedUser = _mapper.Map<List<ClientResponseDTO>>(result);
 
             return Ok(mappedUser);
         }
 
         // GET: api/Clients/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClientDTO>> GetClient(Guid id)
+        public async Task<ActionResult<ClientResponseDTO>> GetClient(Guid id)
         {
             var client = await IClient.GetByIdAsync(id);
 
@@ -43,7 +51,7 @@ namespace Taller.WebApi.Controllers.v1
             {
                 return NotFound();
             }
-            var result = _mapper.Map<ClientDTO>(client);
+            var result = _mapper.Map<ClientResponseDTO>(client);
 
 
             return result;
@@ -52,7 +60,7 @@ namespace Taller.WebApi.Controllers.v1
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut]
-        public async Task<IActionResult> PutClient(ClientDTO clientDTO)
+        public async Task<IActionResult> PutClient(ClientRequestDTO clientDTO)
         {
             var result = _mapper.Map<Client>(clientDTO);
             await IClient.UpdateAsync(result);
@@ -63,14 +71,16 @@ namespace Taller.WebApi.Controllers.v1
         // POST: api/Clients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Client>> PostClient(ClientDTO ClientDTO)
+        public async Task<ActionResult<ClientResponseDTO>> PostClient(ClientRequestDTO ClientDTO)
         {
             var result = _mapper.Map<Client>(ClientDTO);
             result.ClientId = Guid.NewGuid();
             result.PersonNav.Id = Guid.NewGuid();
             var client = await IClient.AddAsync(result);
+            var clientResponseDTO = _mapper.Map<ClientResponseDTO>(client);
 
-            return CreatedAtAction("GetClient", new { id = client.ClientId }, client);
+
+            return CreatedAtAction("GetClient", new { id = client.ClientId }, clientResponseDTO);
         }
 
         // DELETE: api/Clients/5

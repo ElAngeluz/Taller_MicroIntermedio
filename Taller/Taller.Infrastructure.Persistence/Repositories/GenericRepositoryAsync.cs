@@ -12,17 +12,10 @@ namespace Taller.Infrastructure.Persistence.Repository
 {
     public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {
-        private readonly ApplicationDbContext _dbContext;
+        private readonly DbContext _dbContext;
         private readonly ILogger<GenericRepositoryAsync<T>> Logger;
-        private readonly ILoggerFactory loggerFactory;
 
-        public GenericRepositoryAsync(ApplicationDbContext dbContext, ILoggerFactory loggerFactory)
-        {
-            _dbContext = dbContext;
-            this.loggerFactory = loggerFactory;
-        }
-
-        public GenericRepositoryAsync(ApplicationDbContext dbContext, ILogger<GenericRepositoryAsync<T>> logger)
+        public GenericRepositoryAsync(DbContext dbContext, ILogger<GenericRepositoryAsync<T>> logger)
         {
             _dbContext = dbContext;
             Logger = logger;
@@ -36,7 +29,7 @@ namespace Taller.Infrastructure.Persistence.Repository
             }
             catch (Exception Ex)
             {
-                loggerFactory.LogCritical(Ex, "error al consultar la entidad");
+                Logger.LogCritical(Ex, "error al consultar la entidad");
                 throw;
             }
         }
@@ -90,7 +83,7 @@ namespace Taller.Infrastructure.Persistence.Repository
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbContext
                  .Set<T>()
