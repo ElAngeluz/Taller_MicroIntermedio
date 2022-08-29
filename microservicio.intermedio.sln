@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.Infrastructure.Persistence", "Taller\Taller.Infrastructure.Persistence\Taller.Infrastructure.Persistence.csproj", "{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2D5F0427-7D2E-439E-96F4-9B6457311802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

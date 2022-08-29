@@ -15,19 +15,16 @@ namespace Taller.WebApi.Controllers.v1
     public class ClientsController : BaseApiController
     {
         private readonly IMapper _mapper;
-        private readonly IPersonRepository IPerson;
-        private readonly IClientRepository IClient;
+        private readonly IClientRepository _IClient;
         private readonly ILogger _logger;
 
         public ClientsController(IMapper mapper,
-                                 IPersonRepository iPerson,
                                  ILogger<ClientsController> logger,
                                  IClientRepository iClient)
         {
             _mapper = mapper;
-            IPerson = iPerson;
             _logger = logger;
-            IClient = iClient;
+            _IClient = iClient;
         }
 
         // GET: api/Clients
@@ -35,7 +32,7 @@ namespace Taller.WebApi.Controllers.v1
         public async Task<ActionResult<List<ClientResponseDTO>>> GetClient()
         {
             _logger.LogInformation("Se procede a consultar todos los clientes");
-            var result = await IClient.GetAllAsync();
+            var result = await _IClient.GetAllAsync();
             var mappedUser = _mapper.Map<List<ClientResponseDTO>>(result);
 
             return Ok(mappedUser);
@@ -45,7 +42,7 @@ namespace Taller.WebApi.Controllers.v1
         [HttpGet("{id}")]
         public async Task<ActionResult<ClientResponseDTO>> GetClient(Guid id)
         {
-            var client = await IClient.GetByIdAsync(id);
+            var client = await _IClient.GetByIdAsync(id);
 
             if (client == null)
             {
@@ -63,20 +60,31 @@ namespace Taller.WebApi.Controllers.v1
         public async Task<IActionResult> PutClient(ClientRequestDTO clientDTO)
         {
             var result = _mapper.Map<Client>(clientDTO);
-            await IClient.UpdateAsync(result);
+            await _IClient.UpdateAsync(result);
 
             return NoContent();
         }
-
-        // POST: api/Clients
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPost]
         public async Task<ActionResult<ClientResponseDTO>> PostClient(ClientRequestDTO ClientDTO)
         {
+            if (ClientDTO.ClientId is not null)
+            {
+                var client1 = await _IClient.GetByIdAsync(ClientDTO.ClientId.Value);
+                if (client1 is not null) throw new Exception("El identificador unico del cliente ya existe");
+            }
+
+            var person = await _IClient.GetByIdAsync(ClientDTO.Identification);
+
+            if (person is not null)
+            {
+                throw new Exception("el Cliente ya existe en la base de datos");
+            }
+
             var result = _mapper.Map<Client>(ClientDTO);
             result.ClientId = Guid.NewGuid();
             result.PersonNav.Id = Guid.NewGuid();
-            var client = await IClient.AddAsync(result);
+            var client = await _IClient.AddAsync(result);
             var clientResponseDTO = _mapper.Map<ClientResponseDTO>(client);
 
 
@@ -87,12 +95,12 @@ namespace Taller.WebApi.Controllers.v1
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(Guid id)
         {
-            var client = await IClient.GetByIdAsync(id);
+            var client = await _IClient.GetByIdAsync(id);
             if (client == null)
             {
                 return NotFound();
             }
-            await IClient.DeleteAsync(client);
+            await _IClient.DeleteAsync(client);
 
             return NoContent();
         }

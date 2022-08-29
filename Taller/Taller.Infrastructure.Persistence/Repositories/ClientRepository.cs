@@ -37,5 +37,13 @@ namespace Taller.Infrastructure.Persistence.Repositories
                 .Include(c => c.AccountsNav)
                 .FirstAsync(c=>c.ClientId == id);
         }
+
+        public async Task<Client> GetByIdAsync(string id)
+        {
+            return await _dbContext.Client
+                .Include(c => c.PersonNav)
+                .Include(c => c.AccountsNav)
+                .FirstAsync(c => c.PersonNav.Identification == id);
+        }
     }
 }
