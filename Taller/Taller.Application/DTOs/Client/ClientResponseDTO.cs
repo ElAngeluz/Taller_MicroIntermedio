@@ -1,4 +1,4 @@
-﻿namespace Taller.Application.DTOs
+﻿namespace Taller.Application.DTOs.Client
 {
     public class ClientResponseDTO : ClientBasicDTO
     {

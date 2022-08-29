@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Taller.Application.DTOs
+namespace Taller.Application.DTOs.Client
 {
     public class ClientRequestDTO : ClientBasicDTO
     {

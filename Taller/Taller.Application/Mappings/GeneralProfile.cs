@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Taller.Application.DTOs;
+using Taller.Application.DTOs.Accounts;
+using Taller.Application.DTOs.Client;
 using Taller.Domain.Entities;
 
 namespace Taller.Application.Mappings
@@ -25,6 +26,7 @@ namespace Taller.Application.Mappings
                     dir.ClientState,
                     opt => opt.MapFrom(src => src.State))
                 .ReverseMap();
+
             CreateMap<Client, ClientResponseDTO>()
                 .ForMember(dir =>
                     dir.Address,
@@ -41,6 +43,13 @@ namespace Taller.Application.Mappings
                 .ForMember(dir =>
                     dir.ClientState,
                     opt => opt.MapFrom(src => src.State))
+                .ReverseMap();
+
+
+            CreateMap<Account, AccountResponseDTO>()
+                .ForMember(dir =>
+                    dir.ClientName,
+                    opt => opt.MapFrom(src => src.ClientNav.PersonNav.Name))
                 .ReverseMap();
         }
     }

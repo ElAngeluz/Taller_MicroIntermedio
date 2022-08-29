@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Taller.Application.DTOs
+namespace Taller.Application.DTOs.Client
 {
     public class ClientBasicDTO
     {

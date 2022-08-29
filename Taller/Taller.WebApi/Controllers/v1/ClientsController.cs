@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Taller.Application.DTOs;
+using Taller.Application.DTOs.Client;
 using Taller.Application.Interfaces.Repositories;
 using Taller.Domain.Entities;
 
