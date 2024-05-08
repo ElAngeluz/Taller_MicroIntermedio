@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Taller.Application.Interfaces;
 using Taller.Infrastructure.Persistence.Contexts;
 
-namespace Taller.Infrastructure.Persistence.Repository
+namespace Taller.Infrastructure.Persistence.Repositories
 {
     public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {

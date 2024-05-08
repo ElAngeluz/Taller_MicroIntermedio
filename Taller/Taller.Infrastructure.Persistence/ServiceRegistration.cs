@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Taller.Application.Interfaces;
 using Taller.Infrastructure.Persistence.Contexts;
-using Taller.Infrastructure.Persistence.Repository;
+using Taller.Infrastructure.Persistence.Repositories;
 
 namespace Taller.Infrastructure.Persistence
 {

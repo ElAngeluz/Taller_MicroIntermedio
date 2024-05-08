@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taller.Infrastructure.Persi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2D5F0427-7D2E-439E-96F4-9B6457311802}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E0EB3783-B69D-46E8-8867-E79EB662B0DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39B81CA4-BC85-4C3F-8E9F-7E79C7A2A6E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EB3783-B69D-46E8-8867-E79EB662B0DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

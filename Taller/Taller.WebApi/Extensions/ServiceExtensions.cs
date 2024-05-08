@@ -1,10 +1,10 @@
-﻿using IdentityModel;
+﻿using Asp.Versioning;
+using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace Taller.WebApi.Extensions
         {
             services.AddSwaggerGen(c =>
             {
-                c.IncludeXmlComments(XmlCommentsFilePath);
+                //c.IncludeXmlComments(XmlCommentsFilePath);
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
@@ -95,11 +95,7 @@ namespace Taller.WebApi.Extensions
 
         public static void AddVersionedApiExplorerExtension(this IServiceCollection services)
         {
-            services.AddVersionedApiExplorer(o =>
-            {
-                o.GroupNameFormat = "'v'VVV";
-                o.SubstituteApiVersionInUrl = true;
-            });
+            
         }
         public static void AddApiVersioningExtension(this IServiceCollection services)
         {
@@ -146,15 +142,15 @@ namespace Taller.WebApi.Extensions
                             );
         }
 
-        static string XmlCommentsFilePath
-        {
-            get
-            {
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
-                return Path.Combine(basePath, fileName);
-            }
-        }
+        //static string XmlCommentsFilePath
+        //{
+        //    get
+        //    {
+        //        var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+        //        var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
+        //        return Path.Combine(basePath, fileName);
+        //    }
+        //}
 
     }
 
